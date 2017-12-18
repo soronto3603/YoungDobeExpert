@@ -1,0 +1,20 @@
+{
+    "cordova-plugin-whitelist": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-whitelist@1"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-htj-kakaotalk": {
+        "source": {
+            "type": "registry",
+            "id": "https://github.com/taejaehan/cordova-kakaotalk.git"
+        },
+        "is_top_level": true,
+        "variables": {
+            "KAKAO_APP_KEY": "7179967f12f7872f88791ccbde577777"
+        }
+    }
+}

@@ -1,0 +1,90 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "https://github.com/taejaehan/cordova-kakaotalk.git",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "https://github.com/taejaehan/cordova-kakaotalk.git",
+        "spec": "git+https://github.com/taejaehan/cordova-kakaotalk.git",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:taejaehan/cordova-kakaotalk.git",
+          "sshUrl": "git+ssh://git@github.com/taejaehan/cordova-kakaotalk.git",
+          "httpsUrl": "git+https://github.com/taejaehan/cordova-kakaotalk.git",
+          "gitUrl": "git://github.com/taejaehan/cordova-kakaotalk.git",
+          "shortcut": "github:taejaehan/cordova-kakaotalk",
+          "directUrl": "https://raw.githubusercontent.com/taejaehan/cordova-kakaotalk/master/package.json"
+        }
+      },
+      "D:\\Work\\YoungDobe\\node_modules"
+    ]
+  ],
+  "_from": "git+https://github.com/taejaehan/cordova-kakaotalk.git",
+  "_id": "cordova-plugin-htj-kakaotalk@1.0.0",
+  "_inCache": true,
+  "_location": "/cordova-plugin-htj-kakaotalk",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "https://github.com/taejaehan/cordova-kakaotalk.git",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "https://github.com/taejaehan/cordova-kakaotalk.git",
+    "spec": "git+https://github.com/taejaehan/cordova-kakaotalk.git",
+    "type": "hosted",
+    "hosted": {
+      "type": "github",
+      "ssh": "git@github.com:taejaehan/cordova-kakaotalk.git",
+      "sshUrl": "git+ssh://git@github.com/taejaehan/cordova-kakaotalk.git",
+      "httpsUrl": "git+https://github.com/taejaehan/cordova-kakaotalk.git",
+      "gitUrl": "git://github.com/taejaehan/cordova-kakaotalk.git",
+      "shortcut": "github:taejaehan/cordova-kakaotalk",
+      "directUrl": "https://raw.githubusercontent.com/taejaehan/cordova-kakaotalk/master/package.json"
+    }
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/taejaehan/cordova-kakaotalk.git#4cc055947e917150fe2d67821ec3988d0a6d2ed0",
+  "_shasum": "20dd348c811a8083dba215149fe6b8821054abf0",
+  "_shrinkwrap": null,
+  "_spec": "https://github.com/taejaehan/cordova-kakaotalk.git",
+  "_where": "D:\\Work\\YoungDobe\\node_modules",
+  "author": {
+    "name": "TaeJae Han"
+  },
+  "cordova": {
+    "id": "cordova-plugin-htj-kakaotalk",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "dependencies": {},
+  "description": "Cordova KakaoTalk Plugin",
+  "devDependencies": {},
+  "gitHead": "4cc055947e917150fe2d67821ec3988d0a6d2ed0",
+  "id": "cordova-plugin-htj-kakaotalk",
+  "keywords": [
+    "cordova",
+    "kakao",
+    "kakaotalk",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "MIT",
+  "name": "cordova-plugin-htj-kakaotalk",
+  "optionalDependencies": {},
+  "readme": "Cordova Plugin KakaoTalk\r\n========================\r\n\r\nThis plugin is modified by combining the two other plguins\r\n\r\n- https://github.com/lihak/KakaoTalkCordovaPlugin\r\n\r\n- https://github.com/gnustory/cordova_plugin-KakaoLinkPlugin\r\n\r\nMake sure you've registered your Kakao app with Kakao and have an KAKAO_APP_KEY\r\n\r\n- https://developers.kakao.com\r\n\r\nCordova Install Note:\r\n========================\r\n\r\ncordova plugin add https://github.com/taejaehan/cordova-kakaotalk.git --variable KAKAO_APP_KEY=YOUR_KAKAO_APP_KEY\r\n\r\n[Android]\r\n* nothing to do ;-)\r\n* But the Android app must register key hash(https://developers.kakao.com/docs/android#getting-started-launch-sample-app)\r\n\r\n[iOS]\r\n* Add following code to appDelegate\r\n\r\n```\r\n#import <KakaoOpenSDK/KakaoOpenSDK.h>\r\n\r\n- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url\r\n                                       sourceApplication:(NSString *)sourceApplication\r\n                                              annotation:(id)annotation {\r\n    ...\r\n    if ([KOSession isKakaoAccountLoginCallback:url]){return [KOSession handleOpenURL:url];}\r\n    ...\r\n}\r\n\r\n- (void)applicationDidBecomeActive:(UIApplication *)application{[KOSession handleDidBecomeActive];}\r\n```\r\n\r\n* Ohter Linker Flags \r\n\r\nopen platforms/ios/*.xcodeproj\r\n        Build Settings > Linking > Other Linker Flags > add '-all_load'\r\n\r\nHow to use the plugin\r\n========================\r\n\r\n### Usage\r\n\r\nThis plugin adds an object to the window. Right now, you can login, logout and share.\r\n\r\n##### Login\r\n\r\nLogin using the `.login` method:\r\n```\r\nKakaoTalk.login(\r\n    function (result) {\r\n      console.log('Successful login!');\r\n      console.log(result);\r\n    },\r\n    function (message) {\r\n      console.log('Error logging in');\r\n      console.log(message);\r\n    }\r\n);\r\n```\r\n\r\nThe login reponse object is defined as:\r\n```\r\n{\r\n  id: '<KakaoTalk User Id>',\r\n  nickname: '<KakaoTalk User Nickname>',\r\n  profile_image: '<KakaoTalk User ProfileImage>'\r\n}\r\n```\r\n\r\n##### Logout\r\n\r\nLogout using the `.logout` method:\r\n```\r\nKakaoTalk.logout(\r\n\tfunction() {\r\n\t\tconsole.log('Successful logout!');\r\n\t}, function() {\r\n\t\tconsole.log('Error logging out');\r\n\t}\r\n);\r\n```\r\n\r\n##### Share\r\n\r\nShare using the `.share` method:\r\n```\r\nKakaoTalk.share({\r\n    text : 'Share Message',\r\n    image : {\r\n      src : 'https://developers.kakao.com/assets/img/link_sample.jpg',\r\n      width : 138, \r\n      height : 90,\r\n    },\r\n    weblink :{\r\n      url : 'YOUR-WEBSITE URL',\r\n      text : 'web사이트로 이동'\r\n    },\r\n    applink :{\r\n      url : 'YOUR-WEBSITE URL', \r\n      text : '앱으로 이동',\r\n    },\r\n    params :{\r\n      paramKey1 : 'paramVal',\r\n      param1 : 'param1Value',\r\n      cardId : '27',\r\n      keyStr : 'hey'\r\n    }\r\n  },\r\n  function (success) {\r\n    console.log('kakao share success');\r\n  },\r\n  function (error) {\r\n    console.log('kakao share error');\r\n  });\r\n```\r\n\r\n- you can use text, image, weblink and applink(params) separately or together\r\n- Min image width(80)xheight(80)\r\n- weblink(text-link), applink(button-link)\r\n- if you use applink, you can set any params(optional)\r\n\r\n- https://developers.kakao.com/docs/ios#카카오링크\r\n- https://developers.kakao.com/docs/android#카카오링크\r\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "version": "1.0.0"
+}

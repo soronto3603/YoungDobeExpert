@@ -1,0 +1,40 @@
+
+<link href="Ryan.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var color_="#e9e9e9";
+  setInterval(()=>{$.post("http://202.31.147.197:7680/ColorPicker/get_color.php",{}).done((r)=>{
+    var obj=JSON.parse(r);
+    color_="rgb("+obj.r+","+obj.g+","+obj.b+")";
+  });},1000);
+
+
+</script>
+<div class="ryan_outter" onclick="this.style.backgroundColor=color_">
+  <div class="ryan_inner" style="    left: -115px;
+    bottom: 100px;">
+    <div class="ears" onclick="this.style.backgroundColor=color_">
+      <div class="ears_shadow"  onclick="this.style.backgroundColor=color_">
+      </div>
+    </div>
+    <div class="ears_shadow_2"  onclick="this.style.backgroundColor=color_">
+    </div>
+
+    <div class="face"  onclick="this.style.backgroundColor=color_">
+      <div class="face_shadow" onclick="this.style.backgroundColor=color_">
+      </div>
+
+      <div class="eyebrows" onclick="this.style.backgroundColor=color_">
+      </div>
+      <div class="eyes" onclick="this.style.backgroundColor=color_">
+      </div>
+      <div class="mouth" onclick="this.style.backgroundColor=color_">
+        <div class="mouth_part1" onclick="this.style.backgroundColor=color_">
+        </div>
+        <div class="mouth_part2" onclick="this.style.backgroundColor=color_">
+        </div>
+      </div>
+      <div class="nose" onclick="this.style.backgroundColor=color_">
+      </div>
+    </div>
+  </div>
